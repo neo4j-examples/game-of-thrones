@@ -1,0 +1,45 @@
+type Seat {
+   name: String!
+   houses: [House] @relation(name:"SEAT_OF")
+}
+
+type Region {
+   name: String
+   houses: [House] @relation(name:"IN_REGION", direction:IN)
+}
+type House {
+   id: ID!
+   name: String!
+   founded: String
+   titles: [String]
+   ancestralWeapons: [String]
+   coatOfArms: String
+   words: String
+   seats: [Seat] @relation(name:"SEAT_OF",direction:IN)
+   region: Region @relation(name:"IN_REGION")
+   leader: Person @relation(name:"LED_BY")
+   founder: Person @relation(name:"FOUNDED_BY")
+   allies: [House] @relation(name:"ALLIED_WITH", direction:IN)
+   follows: House @relation(name:"SWORN_TO")
+   followers: [House] @relation(name:"SWORN_TO",direction:IN)
+   heir: [Person] @relation(name:"HEIR_TO",direction:IN)
+}
+type Person {
+   id: ID!
+   name: String!
+   aliases: [String]
+   books: [Int]
+   tvSeries: [String]
+   playedBy: [String]
+   isFemale: Boolean
+   culture: String
+   died: String
+   titles: [String]
+   founded: [House] @relation(name:"FOUNDED_BY", direction:IN)
+   leads: [House] @relation(name:"LED_BY", direction:IN)
+   inherits: [House] @relation(name:"HEIR_TO")
+   spouse: [Person] @relation(name:"SPOUSE",direction:BOTH)
+   parents: [Person] @relation(name:"PARENT_OF",direction:IN)
+   children: [Person] @relation(name:"PARENT_OF")
+   houses: [House] @relation(name:"ALLIED_WITH")
+}
