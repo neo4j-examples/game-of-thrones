@@ -86,6 +86,7 @@ Example GraphQL Query
 }
 ```
 
+![](./got-graphiql.jpg)
 
 3.  Visit the `Neo4j Browser`. You'll automatically be authenticated. 
 
@@ -95,6 +96,8 @@ Example Cypher queries:
 MATCH path = (p:Person {name:"Steffon Baratheon"})-[:PARENT_OF*]->()
 RETURN path
 ```
+
+![](./got-cypher-parents.jpg)
 
 ## Other Datasources
 
