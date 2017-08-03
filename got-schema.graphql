@@ -4,7 +4,7 @@ type Seat {
 }
 
 type Region {
-   name: String
+   name: String!
    houses: [House] @relation(name:"IN_REGION", direction:IN)
 }
 type House {
