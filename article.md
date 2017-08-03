@@ -215,9 +215,9 @@ MATCH (p:Person)
 WHERE size(p.tvSeries) > 1
 AND NOT exists((p)-[:PARENT_OF]-())
 RETURN p LIMIT 10;
-````
+```
 
-````
+```
 ╒═════════════════╕
 │"p.name"         │
 ╞═════════════════╡
